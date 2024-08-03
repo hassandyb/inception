@@ -1,0 +1,48 @@
+
+
+
+Inside sql envirement of the databse container 
+
+
+docker exec -it database_name bash
+USE wordpress;
+SHOW TABLES;
+SELECT * FROM tabel_name;
+
+
+------------------------
+
+Step 2:
+docker pull wordpress
+docker pull mysql:5.7
+
+
+Step 3: Create a Docker Network
+docker network create wordpress-network
+
+Step 4: Run the MySQL Container
+docker run --name wordpress-db --network wordpress-network -e MYSQL_ROOT_PASSWORD=yourpassword -e MYSQL_DATABASE=wordpress -d mysql:5.7
+
+Step 5: Run the WordPress Container
+docker run --name wordpress --network wordpress-network -e WORDPRESS_DB_HOST=wordpress-db:3306 -e WORDPRESS_DB_USER=root -e WORDPRESS_DB_PASSWORD=yourpassword -p 8080:80 -d wordpress
+
+
+
+test -------------- containers woredpress db , netword main_network
+docker pull wordpress
+docker pull mysql:5.7
+docker network create mains-network
+docker run --name wordpress-db --network wordpress-network -e MYSQL_ROOT_PASSWORD=yourpassword -e MYSQL_DATABASE=wordpress -d mysql:5.7
+docker run --name wordpress --network main_network -e WORDPRESS_DB_HOST=db:3306 -e WORDPRESS_DB_USER=root -e WORDPRESS_DB_PASSWORD=1234 -p 8080:80 -d wordpress
+
+
+==>check  http://localhost:8080 in the begining you will see woredpres set up page , when you finich one you go back you will see a simple wordpress page.
+
+==>http://localhost:8080/wp-admin
+
+
+
+test
+test
+ABCD@#1234
+test@test.com

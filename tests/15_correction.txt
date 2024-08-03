@@ -1,0 +1,42 @@
+
+
+
+
+Test HTTP Access (Port 80) vs (Port 443): -------------
+
+telnet hed-dyb.42.fr 80
+
+telnet hed-dyb.42.fr 442
+
+
+demostration of tls v1.2 and v1.3 certificates : -------------
+
+should connect
+openssl s_client -connect hed-dyb.42.fr:443 -tls1_2
+openssl s_client -connect hed-dyb.42.fr:443 -tls1_3
+
+should not coonect 
+openssl s_client -connect hed-dyb.42.fr:443 -tls1_1
+openssl s_client -connect hed-dyb.42.fr:443 -tls1_4
+openssl s_client -connect hed-dyb.42.fr:443 -tls1_5
+openssl s_client -connect hed-dyb.42.fr:443 -tls1_6
+
+-----------data bases ---------
+
+insdie mysql envirement :
+
+
+
+show databases;
+
+        USE wordpress;
+        SHOW TABLES;
+        SELECT * FROM #table_name# LIMIT 10;
+
+
+
+
+
+
+
+

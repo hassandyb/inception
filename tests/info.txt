@@ -1,0 +1,137 @@
+
+
+stop all containers : 
+
+docker stop $(docker ps -q)
+------------------------------------------------------------------
+
+
+
+
+
+
+Default config for NGINX location: /etc/nginx/sites-available/default
+Default config for PHP location: /etc/php/7.4/fpm/pool.d/www.conf
+
+
+
+
+docker coomands : ---
+
+
+
+sudo docker build -t image_name .
+sudo docker run --name container_name -d -p  9000:9000 image_name
+
+
+----------------------------------------------------------------------------------
+
+ssh hassan@10.11.100.57
+
+
+bridged adapter
+en0:ethnet
+ssh hassan@10.11.100.57 == 10.1
+1 ==hostname -I
+
+in case shared fiels did not work
+
+sudo apt install virtualbox-guest-utils
+
+
+
+
+
+chared content ---------------------
+outomount check 
+make parmenenet ...chared
+
+to get access to the to the files shreed ... 
+sudo groupadd vboxsf
+
+sudo usermod --append --groups vboxsf $USER
+
+sudo apt install virtualbox-guest-utils
+
+
+
+
+install dokcer 
+insrall docker copmse 
+give docker copo se permeioons 
+
+
+add your user to greoup docker 
+reboot the machin.
+
+https://localhost:443
+
+
+
+to know ------------------
+
+docker volumes  test the defernce between using and not usng the 
+docker netwrok  test the defernce between using and not usng the 
+
+
+
+how to access the word press dach boread..???
+how to access database and see it ... 
+
+how to login into the database. 
+
+not allowd -------------
+
+to use 
+
+sleep infinity', 'tail -f /dev/null', 'tail -f /dev/random
+in dockerfile
+
+
+
+
+ to test ############################################################
+
+
+docker-compose
+
+up: Create and start containers
+down: Stop and remove containers, networks, images, and volumes
+start: Start existing containers
+stop: Stop running containers
+restart: Restart running containers
+build: Build images
+ps: List containers
+logs: View output from containers
+exec: Run a command in a running container
+pull: Pull images from a registry
+push: Push images to a registry
+
+
+download the image of wordpress from th hub and do some test on it / or watch tutorials ...
+
+download mariadb database from the hub and do some test on it  / or whatck tutorials ...
+
+ask gpt to give you anexample of using the word press image and the nginx image from the hub .. and buidling your own mariadb database and how to create and test you data bases and how to ceenect th it with wordpress
+
+
+
+
+
+
+ask gpt to tell you how to test those comannds ---------
+mysql -uroot // To connect on mysql CLI
+SELECT User FROM mysql.user; // To see all the users
+USE wordpress // To connect on your wordpress database
+mysqldump -u username -p databasename > filename.sql // To export the file
+mysql -uroot -p$MYSQL_ROOT_PASSWORD $MYSQL_DATABASE < /usr/local/bin/wordpress.sql // To import the file
+
+
+
+
+to kill nginx proccess 
+
+ps aux | grep nginx
+sudo kill <process_id>
+
+

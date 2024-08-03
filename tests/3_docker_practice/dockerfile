@@ -1,0 +1,47 @@
+
+
+FROM alpine:latest
+
+#  CMD -------------------
+# Example 1: Using an array format
+# CMD ["sh", "-c", "i=0; while true; do i=$((i+1)); echo 'hello hassan! ===' $i; sleep 1; done"]
+
+# Example 2: Using shell form
+# CMD echo "Hassan is a man of focus , commitment, determination and sheer fucking will..."
+
+WORKDIR /app
+
+COPY file.cpp .
+
+ADD https://docs.google.com/document/d/1Z-4gSKJWzvb5onD5gslN69q9_sC6BH-f-4WwkXEYfaw/edit?usp=sharing .
+
+
+RUN apk add --no-cache curl
+
+ENV MY_VAR="Hello hassan..."
+
+EXPOSE 8080
+# -----------------
+# USER nobody
+# or
+#  create a user(-D without a user )
+#  cat /etc/passwd
+
+RUN adduser -D hassan 
+USER hassan
+# now enter it 
+# -----------------
+
+
+#  docker exec -it <container_id> sh
+#  ENV, EXPOSE, USER, CMD, and ENTRYPOINT commands!
+# whoami
+
+
+# ENTRYPOINT -----------------------
+
+
+ENTRYPOINT echo "ENTRYPOINT : hello hassan ..."
+CMD echo "CMD : hello hassan..."
+
+

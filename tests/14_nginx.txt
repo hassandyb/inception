@@ -1,0 +1,19 @@
+
+
+docker pull nginx
+docker run --name mynginx -d -p 80:80 nginx
+
+
+
+
+Nginx configuratio file --------------------
+
+listen 443: 
+listen for incoming connections on port 443. 
+Port 443 is the standard port used for HTTPS traffic
+
+ssl :
+
+Nginx should use SSL/TLS to secure the connections on this port
+
+

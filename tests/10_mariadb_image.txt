@@ -1,0 +1,99 @@
+
+
+
+you can run those command inside the enviremt or you can simplt run them from bash using   mariadb -ppass_word -e "coomand ...."    (paas_word) is the password of root
+
+list databases command                               SHOW DATABASES;
+
+list users   cooamnd                                 SELECT user, host FROM mysql.user;
+
+list users that have privilage over a databases      SELECT User, Host FROM mysql.db WHERE Db = 'your_database_name';
+
+
+#################################################
+
+
+-d (Detached Mode):
+-it (Interactive Mode with tty):
+
+
+methode one -------------------------------------------
+
+Step 1: Install Docker
+
+Step 2: Pull MariaDB Image
+docker pull mariadb:latest
+
+
+Step 3: Run MariaDB Container  ---------------------------------------------
+
+docker run -d \
+  --name mariadb-container \
+  -e MYSQL_ROOT_PASSWORD=your_password \
+  -p 3306:3306 \
+  mariadb:latest
+or 
+
+docker run -it --rm \
+  --name mc2 \
+  -e MYSQL_ROOT_PASSWORD=your_password \
+  mariadb:latest \
+  mysql -uroot -pyour_password
+
+or
+docker run -d --name db1 -e MYSQL_ROOT_PASSWORD=1234 mariadb:latest
+
+
+docker run -it --name db2 -e MYSQL_ROOT_PASSWORD=1234 mariadb:latest
+
+Step 4: Access MariaDB SQL Environment  ----------------------------------------------
+
+directly :
+docker exec -it mariadb-container mariadb -u root -p
+
+or access it s enviremt first with
+
+docker exec -it mariadb-container bash
+
+the run thsi coamnd 
+
+mariadb -u root -p   or        mariadb -p
+
+
+
+#################################################
+
+
+
+
+
+
+CREATE DATABASE IF NOT EXISTS mydatabase;
+
+mysql -u root -proot_password -e "CREATE USER IF NOT EXISTS myuser@'localhost' IDENTIFIED BY 'mypassword';"
+mysql -u root -proot_password -e "GRANT ALL PRIVILEGES ON mydatabase.* TO myuser@'%' IDENTIFIED BY 'mypassword';"
+mysql -u root -proot_password -e "ALTER USER 'root'@'localhost' IDENTIFIED BY 'new_root_password';"// This command changes the password for the root user to new_root_password.
+mysql -u root -pnew_root_password -e "FLUSH PRIVILEGES;"// This command reloads the privileges from the grant tables in the MySQL database, ensuring that changes take effect immediately.
+
+mysql -u root -proot_password -e "ALTER USER 'root'@'localhost' IDENTIFIED BY 'new_root_password';"
+exec mysqld_safe
+
+-----------
+
+my script 
+service mariadb start
+mysql -e "CREATE DATABASE IF NOT EXISTS \`${SQL_DATABASE}\`;"
+mysql -e "CREATE USER IF NOT EXISTS \`${SQL_USER}\`@'localhost' IDENTIFIED BY '${SQL_PASSWORD}';"
+mysql -e "GRANT ALL PRIVILEGES ON \`${SQL_DATABASE}\`.* TO \`${SQL_USER}\`@'%' IDENTIFIED BY '${SQL_PASSWORD}';"
+mysql -e "ALTER USER 'root'@'localhost' IDENTIFIED BY '${SQL_ROOT_PASSWORD}';"
+mysql -e "FLUSH PRIVILEGES;"
+mysqladmin -u root -p$SQL_ROOT_PASSWORD shutdown # restart MySQL to make above comands take effect
+exec mysqld_safe
+
+
+
+mariadb -u root -p1234 -e "ALTER USER 'root'@'localhost' IDENTIFIED BY '1234';"
+
+
+
+

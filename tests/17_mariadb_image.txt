@@ -1,0 +1,16 @@
+
+
+# commands ...
+    # myqsl -u root -p                           == access myql env
+    # SHOW DATABASES;
+    # select user, host from mysql.user;         == list all users
+
+
+
+
+docker pull mariadb:latest
+docker run --name mariadb-container -e MYSQL_ROOT_PASSWORD=my-secret-pw -d mariadb:latest
+
+docker exec -it mariadb-container bash
+
+
