@@ -1,5 +1,3 @@
-Sure! Here is the `README.md` content formatted in Markdown code:
-
 ```markdown
 # Inception Project
 
