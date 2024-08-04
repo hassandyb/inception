@@ -1,95 +1,55 @@
-```markdown
 # Inception Project
 
-Welcome to the **Inception Project**! 🌟
+## Introduction
 
-This project is all about setting up a modern, scalable, and secure web infrastructure using Docker. Think of it as building a mini web empire where each part works seamlessly with the others. If you’re curious about how websites are managed and want to dive into the world of system administration and containerization, you’re in the right place!
+Welcome to the **Inception Project**! This project is a comprehensive introduction to Docker and containerized applications. By setting up a fully functional environment with **Nginx**, **WordPress**, and **MariaDB**, this project demonstrates the power and flexibility of containerization in modern software development.
 
-## 🎯 What’s This All About?
+## Project Overview
 
-In this project, you’ll create a robust web infrastructure on your own virtual machine. We’ll use Docker to containerize different services, ensuring they work perfectly together. Here’s a breakdown of what you’ll build:
+The Inception project involves creating a multi-container setup to host a WordPress site with an Nginx web server and a MariaDB database. This setup is designed to provide a solid foundation for understanding how these components interact in a containerized environment.
 
-- **NGINX**: This is your web server that will handle all incoming traffic and provide secure connections with TLS.
-- **WordPress**: The platform where your website lives, but without the web server – that’s NGINX’s job!
-- **MariaDB**: The database that stores all your website’s data.
-- **Volumes**: Think of these as storage spaces – one for your WordPress files and another for your database.
-- **Network**: This connects everything so that your web server, website, and database can talk to each other.
+### Key Components
 
-## 🚀 Getting Started
+1. **Nginx**: A high-performance web server used to serve web pages and manage traffic.
+2. **WordPress**: A popular content management system (CMS) that powers websites and blogs.
+3. **MariaDB**: A robust and reliable database management system that stores the data for WordPress.
 
-Here’s how you can set up everything:
+## Goals
 
-### 1. **Clone the Repository**
+- **Containerization**: Learn how to use Docker to create isolated environments for each component of the stack.
+- **Integration**: Understand how Nginx, WordPress, and MariaDB work together within a Docker setup.
+- **Configuration**: Gain experience in configuring Nginx to work with WordPress and managing database connections.
 
-First, get your hands on the project files:
+## Setup and Configuration
 
-```bash
-git clone https://github.com/yourusername/inception.git
-cd inception
-```
+### Docker Compose
 
-### 2. **Prepare Your Environment**
+The project uses Docker Compose to define and manage the multi-container setup. Docker Compose simplifies the process of configuring and running multi-container applications.
 
-Ensure you have Docker and Docker Compose installed on your virtual machine. If not, follow the installation guides for [Docker](https://docs.docker.com/get-docker/) and [Docker Compose](https://docs.docker.com/compose/install/).
+### Nginx Configuration
 
-### 3. **Set Up Your Project**
+The Nginx server is configured to handle incoming requests and route them to the WordPress container. Custom configurations ensure that the server performs efficiently and securely.
 
-Inside the project folder, you’ll find a `Makefile`. Run the following command to build and set up your Docker containers:
+### WordPress
 
-```bash
-make
-```
+WordPress is set up to run in a Docker container, connected to the MariaDB container for database management. Configuration files are provided to ensure seamless integration with Nginx and MariaDB.
 
-This will read the `docker-compose.yml` file and build all the necessary Docker images and containers.
+### MariaDB
 
-### 4. **Configuration**
+MariaDB is used to store all WordPress data. The database container is configured to provide reliable data storage and retrieval for the WordPress site.
 
-Edit the `.env` file to set your environment variables. This file includes:
+## Technical Details
 
-- **DOMAIN_NAME**: Your website’s domain (e.g., `yourlogin.42.fr`).
-- **CERTS**: Path to your TLS certificates.
-- **MYSQL_ROOT_PASSWORD**: Root password for MariaDB.
-- **MYSQL_USER** and **MYSQL_PASSWORD**: Database user credentials.
-
-Make sure to replace placeholders with your actual information.
-
-### 5. **Access Your Website**
-
-Once everything is set up, you can visit your website by navigating to `https://yourlogin.42.fr` in your web browser. 
-
-## 📁 Directory Structure
-
-Here’s a quick look at the project structure:
-
-```
-inception/
-├── Makefile
-├── srcs/
-│   ├── docker-compose.yml
-│   ├── .env
-│   ├── requirements/
-│       ├── mariadb/
-│       ├── nginx/
-│       ├── wordpress/
-```
-
-- **Makefile**: Automates the build process.
-- **srcs/docker-compose.yml**: Defines how your containers interact.
-- **srcs/.env**: Contains environment variables.
-- **srcs/requirements/**: Contains Dockerfiles and configuration for each service.
-
-## 💡 Tips
-
-- **Security**: Make sure your `.env` file is secure and not shared publicly.
-- **Troubleshooting**: If you run into issues, check Docker logs for details.
-
-## 📚 Learn More
-
-If you want to dive deeper into Docker, NGINX, WordPress, or MariaDB, here are some resources to check out:
-
-- [Docker Documentation](https://docs.docker.com/)
-- [NGINX Documentation](https://nginx.org/en/docs/)
-- [WordPress Documentation](https://wordpress.org/support/)
-- [MariaDB Documentation](https://mariadb.com/kb/en/documentation/)
+- **Dockerfile**: Custom Dockerfiles are provided for each component, specifying the setup and configuration of Nginx, WordPress, and MariaDB.
+- **docker-compose.yml**: The Docker Compose file defines the services, networks, and volumes required for the application.
+- **nginx.conf**: Custom Nginx configuration to manage requests and ensure proper routing to the WordPress container.
 
 
+## Usage
+
+- **WordPress Admin**: Access the WordPress admin panel to configure and manage your site at `https://www.hed-dyb.42.fr/wp-admin`.
+- **Database Management**: Use tools like phpMyAdmin or MySQL Workbench to manage the MariaDB database if needed.
+
+## Conclusion
+
+The Inception Project is a powerful way to understand the fundamentals of containerization and how different services interact within a Docker environment. By setting up Nginx, WordPress, and MariaDB, you'll gain practical experience in managing and configuring a complete web application stack.
