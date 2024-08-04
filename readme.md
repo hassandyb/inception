@@ -93,5 +93,3 @@ If you want to dive deeper into Docker, NGINX, WordPress, or MariaDB, here are s
 - [MariaDB Documentation](https://mariadb.com/kb/en/documentation/)
 
 
-
-Feel free to replace placeholders like `yourusername` and `your-email@example.com` with your actual details.
