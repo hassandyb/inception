@@ -20,7 +20,7 @@ The Inception project involves creating a multi-container setup to host a WordPr
 - **Integration**: Understand how Nginx, WordPress, and MariaDB work together within a Docker setup.
 - **Configuration**: Gain experience in configuring Nginx to work with WordPress and managing database connections.
 
-## Setup and Configuration
+## Setup 
 
 ### Docker Compose
 
